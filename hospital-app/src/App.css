@@ -36,3 +36,78 @@
     transform: rotate(360deg);
   }
 }
+
+.classNav{
+  background-color:white;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid grey;
+  /* flexDirection:"row", */
+}
+
+.classLink{
+  color:#0080FF;
+  padding-top: 35px;
+  font-size: 18px;
+  font-weight:bolder;
+  text-decoration: none;
+  
+}
+.classLink:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset:27px ;
+}
+
+.classAvatar{
+  padding-top: 23%;
+}
+
+.classH2{
+  color:"#383838";
+}
+
+.classH3{
+  color: grey;
+  padding-top: 15%;
+  padding-left: 7%;
+}
+
+.classArrow{
+  color:grey;
+  padding-top:33%;
+}
+
+.classForm{
+  max-width: 91%;
+  padding-left:5%;
+  padding-top:1%;
+  padding-bottom:3%;
+}
+
+.classBookFields{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3%;
+}
+
+.classBookBtn{
+  padding-bottom: 2%;
+}
+
+.classButton{
+  width:30%;
+}
+
+.classLabel{
+  font-weight:500;
+  font-size:105%;
+}
+
+.classDivLab{
+  display: flex;
+  padding-left: 3%;
+}
