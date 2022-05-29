@@ -4,18 +4,19 @@ import MenuItem from '@mui/material/MenuItem'
 
 const InputSelectField = (props) => {
 
-    const itemKey=props.itemKey
+    const itemKey = props.itemKey
     const [temp, setTemp] = React.useState('');
 
     const handleChange = (event) => {
         setTemp(event.target.value);
-        if(event.target.value !== "")
+        if( event.target.value !== "" && props.itemKey !== 'gender' && props.itemId !== "1" )
             { props.onChange(event,itemKey) }
+        else{ props.onChange(event) }
       };
 
     return (
-        <div>
-            <div className="classDivLab">
+        <div className='classFields'>
+            <div className='classDivLab'>
                 <label className="classLabel">
                     {props.label}
                 </label>
@@ -24,16 +25,18 @@ const InputSelectField = (props) => {
                 size="small"
                 id="demo-simple-select-outlined"
                 displayEmpty
+                name={props.name}
                 value={temp}
                 onChange={handleChange}
-                sx={{ m:2, width:500 }}
+                sx={{ width:( itemKey === 'gender' )? 170: 500 , marginTop:( itemKey === 'gender' )?1.2:0}}
             >    
                 <MenuItem value="">--Select--</MenuItem>
-                { 
-                    props.items?.map( (item) => 
-                        <MenuItem value={ item }>{ item[itemKey] }</MenuItem> 
-                    )
-                }
+                    { props.itemKey === 'gender' ? 
+                        props.items.map( (item) => 
+                            <MenuItem value={ item }>{ item }</MenuItem> ) :                      
+                        props.items?.map( (item) => 
+                            <MenuItem value={ item }>{ item[itemKey] }</MenuItem> 
+                    )}
             </Select>
     </div>
 )

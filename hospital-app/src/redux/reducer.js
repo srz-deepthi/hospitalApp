@@ -23,7 +23,6 @@ const Reducer = (state = initialState, action) => {
     }
 
     if( action.type === 'GET_BRANCHES_INFO'){
-        // console.log("branches",action.getInfo)
         return{
             ...state,
             branchesList: action.getInfo
@@ -31,7 +30,6 @@ const Reducer = (state = initialState, action) => {
     }
 
     if( action.type === 'GET_SPECIALITY_INFO'){
-        // console.log("speciality",action.getInfo)
         return{
             ...state,
             specialityList: action.getInfo
@@ -39,7 +37,6 @@ const Reducer = (state = initialState, action) => {
     }
 
     if( action.type === 'GET_SPECIALIST_INFO'){
-        console.log("specialist",action.getInfo)
         return{
             ...state,
             specialistList: action.getInfo

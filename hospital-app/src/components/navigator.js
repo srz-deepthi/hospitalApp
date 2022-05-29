@@ -6,7 +6,6 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import '../App.css';
 
 const Navigator = (props) => {
-  // console.log("nav:",props.userDet)
   return (
     <div className="classNav">
         <Header/>
@@ -20,7 +19,7 @@ const Navigator = (props) => {
           </div>
           <h3 className="classH3">
             User1
-            {/* {props.userDet.name} */}
+            {props.userDet.name}
           </h3>
           <ArrowDropDownIcon className="classArrow"/>
         </div>

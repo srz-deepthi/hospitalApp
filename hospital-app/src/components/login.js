@@ -7,6 +7,7 @@ import { login } from '../redux/action'
 import { useNavigate } from 'react-router';
 import { InputTextField } from './inputTextField';
 import Header from './header';
+import ButtonComp from './buttonComp';
 
 export const Login = (props) => {
 
@@ -29,7 +30,6 @@ export const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     props.login(user)
-    // console.log("userlogin res: ", props.userRes)
     navigate("/home",{ state:{user:user}})
   }
   return (
@@ -38,13 +38,16 @@ export const Login = (props) => {
     <div style={{ padding:50, backgroundColor:"#800000"}}>
         <form onSubmit={handleSubmit}>
             <div style={{display:"grid",justifyItems:"flex-end"}}>
-                <Card sx={{ width:500 , dispaly:"flex", padding:5}}>
+                <Card sx={{ width:550 , dispaly:"flex", padding:5}}>
                     <Typography variant="h5" component="div">Patient Login</Typography>
-                  <CardContent sx={{ display:"flex", flexDirection:"column", alignItems:"flex-start"}}>
+                  <CardContent sx={{ display:"flex", flexDirection:"column", alignItems:"center"}}>
                         <InputTextField type="text" label="User name" value={user.name} name="name" onChange={handleChange}/>
                         <InputTextField type="password" label="Password" value={user.password} name="password" onChange={handleChange}/>
                   </CardContent>
-                  <Button variant="contained" sx={{width:200, backgroundColor:"#800000"}} type="submit">Log in</Button>
+                  <div className="classBookBtn">
+                      <ButtonComp label="Log in" bId="logIn"/>
+                  </div>
+                  {/* <Button variant="contained" sx={{width:200, backgroundColor:"#800000"}} type="submit">Log in</Button> */}
                   </Card>
             </div>
         </form>
@@ -54,7 +57,6 @@ export const Login = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    // console.log("res: ",state.user)
     return {
       userRes:state.user
     }

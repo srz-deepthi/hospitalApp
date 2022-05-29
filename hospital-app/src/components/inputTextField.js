@@ -1,5 +1,4 @@
 import TextField from '@mui/material/TextField';
-// import '../App.css'
 
 export const InputTextField = (props) => {
     const handleChange = (event) => {
@@ -7,16 +6,17 @@ export const InputTextField = (props) => {
         props.onChange(event)
       }
     }
+
     return (
-        <div>
+        <div className="classFields">
           <div className="classDivLab">
           <lable className="classLabel">{props.label}</lable>
           </div>
             <TextField 
-                  sx={{ m:2, width:500}}
+                  sx={{ width:500}}
                   size="small"
                   variant="outlined" 
-                  label={props.label} 
+                  label={( props.itemId === "long" )? " " : props.label} 
                   name={props.name} 
                   type={props.type} 
                   value={props.value}   

@@ -1,5 +1,5 @@
 
-var token="794ef27b-3849-4634-88b3-89293f335313";
+var token="6acb4f92-01f6-4b86-8893-e0d32cb5418e";
 
 export const reports = (user) => {
     return {
@@ -11,7 +11,6 @@ export const reports = (user) => {
 }
 
 export const login = (user) =>{
-    // console.log("user",user)
     return{
         type:"LOGIN_USER",
         payload:user

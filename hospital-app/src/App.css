@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -42,49 +42,41 @@
   display: flex;
   justify-content: space-evenly;
   border: 1px solid grey;
-  /* flexDirection:"row", */
 }
-
 .classLink{
   color:#0080FF;
   padding-top: 35px;
   font-size: 18px;
   font-weight:bolder;
   text-decoration: none;
-  
 }
 .classLink:hover{
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset:27px ;
 }
-
 .classAvatar{
   padding-top: 23%;
 }
-
 .classH2{
-  color:"#383838";
+  color: #383838;
+  padding-left: 5%;
 }
-
 .classH3{
   color: grey;
   padding-top: 15%;
   padding-left: 7%;
 }
-
 .classArrow{
   color:grey;
   padding-top:33%;
 }
-
 .classForm{
   max-width: 91%;
   padding-left:5%;
   padding-top:1%;
   padding-bottom:3%;
 }
-
 .classBookFields{
   display: flex;
   flex-wrap: wrap;
@@ -93,21 +85,33 @@
   padding-right: 5%;
   padding-top: 3%;
 }
-
 .classBookBtn{
-  padding-bottom: 2%;
+  display: flex ;
+  justify-content: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
-
-.classButton{
-  width:30%;
-}
-
 .classLabel{
   font-weight:500;
   font-size:105%;
 }
-
+.classFields{
+  padding: 1%;
+}
 .classDivLab{
-  display: flex;
-  padding-left: 3%;
+  padding-bottom: 3%;
+}
+.classPartition{
+   margin-top: 2.2%;
+   padding: 0.8%;
+}
+.classDivLabPart{
+  padding: 1.5%;
+}
+.classSurvey{
+    width:90%;    
+    display: flex;
+    justify-content: space-between;
+    column-gap: 9.5%;
+    padding-left:5%;
 }

@@ -2,27 +2,22 @@ import { call,put,takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
   export function* watchAddUser(){
-    // console.log("inside..saga..postUser..")
     yield takeEvery('LOGIN_USER',postUser);
   }
 
   export function* watchPostReports(){
-    // console.log("inside..saga..postUser..")
     yield takeEvery('POST_REPORTS',postReports);
   }
 
   export function* watchGetBranches(){
-    // console.log("inside..saga..getList..")
     yield takeEvery('GET_BRANCHES',getBranches);
   }
 
   export function* watchGetSpeciality(){
-    // console.log("inside..saga..getspeList..")
     yield takeEvery('GET_SPECIALITY',getSpeciality);
   }
 
   export function* watchGetSpecialist(){
-    // console.log("inside..saga..getspeList..")
     yield takeEvery('GET_SPECIALIST',getSpecialist);
   }
 

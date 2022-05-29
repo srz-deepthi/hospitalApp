@@ -7,7 +7,7 @@ const ButtonComp = (props) => {
       <div>
           <Button className="classButton" 
                   variant="contained" 
-                  sx={{ fontWeight:700, fontSize:14,backgroundColor:"#04c35c"}}
+                  sx={{ fontWeight:700, fontSize:14,backgroundColor:(props.bId === 'logIn')? "#800000" :"#04c35c", width:300}}
                   type="submit"
                   >
                 {props.label}

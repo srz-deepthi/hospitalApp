@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper'
 import { InputTextField } from './inputTextField'
 import InputSelectField from './inputSelectField'
 import { InputDateField } from './inputDateField'
+import { Timer } from './timer';
 import { getBranches, getSpeciality, getSpecialist } from '../redux/action'
 import ButtonComp from './buttonComp'
 import '../App.css'
@@ -14,12 +15,24 @@ export const Booking = (props) => {
   const [book,setBook] = useState({
       name:"",
       mobile_number:"",
-      email:""
-    })
+      email:"",
+      office_id:"",
+      department_id:"",
+      doctors_id:"",
+      appointment_date:"",
+      slot_time: "",
+  })
 
   useEffect(() => { 
       props.getBranches();
   },[]) 
+
+  const handleChangeDate = (itemK,value) =>{
+    setBook({
+      ...book,
+      [itemK]: value
+    })
+  }
 
   const handleChange = (event) =>{
     const name = event.target.name
@@ -30,25 +43,35 @@ export const Booking = (props) => {
   }
 
   const handleSelectChange = (event, itemK) =>{
-      console.log("props",itemK)
       if(itemK === "office_name"){
-          props.getSpeciality(event.target.value.office_id)
+          setBook({
+            ...book,
+            [itemK]: event.target.value.office_id
+          })
+            props.getSpeciality(event.target.value.office_id)
       }
       if(itemK === "department_name"){
-        // console.log("o and d",event.target.value.office_id,event.target.value.department_id)
+          setBook({
+            ...book,
+            [itemK]: event.target.value.department_id
+          })
         props.getSpecialist(event.target.value.office_id,event.target.value.department_id)
+      }
+      if(itemK === "doctors_id"){
+          setBook({
+            ...book,
+            [itemK]: event.target.value.doctors_id
+          })
       }
   }
  
-  const handleSubmit = () =>{
-    console.log("in submit");
+  const handleSubmit = (event) =>{
+    event.preventDefault()
+    console.log("in submit",book);
   }
 
   return (
     <div>
-         {/* {console.log("props",props.specialitylist)} */}
-     {/* </div> */}
-     {/* <div> */}
       <Navigator userDet={props.userRes}/>
       <h2 className="classH2">Booking Appointment</h2>
       <form className="classForm" onSubmit={handleSubmit}>
@@ -63,7 +86,7 @@ export const Booking = (props) => {
             />
             <InputTextField 
                       type="number" 
-                      label="Mobile Number" 
+                      label="Mobile No" 
                       value={book.mobile_number} 
                       name="mobile_number" 
                       onChange={handleChange} 
@@ -78,24 +101,34 @@ export const Booking = (props) => {
             <InputSelectField 
                       label="Select Branch"
                       itemKey="office_name"
+                      itemId="office_id"
                       items={props.branchesList?.officeList}
                       onChange={handleSelectChange}
                       />
             <InputSelectField
                       label="Select Speciality"
                       itemKey="department_name"
+                      itemId="department_id"
                       items={props.specialityList?.departmentsList}
                       onChange={handleSelectChange}
                       />
             <InputSelectField
                       label="Select Specialist"
                       itemKey="doctors_name"
+                      itemId="doctors_id"
                       items={props.specialistList?.doctorsList}
                       onChange={handleSelectChange}
                       />
-            <InputDateField
-                      label="Preferred Appointment Date & Time"
-                      />
+            <div style={{ display:"flex", paddingLeft:7}}>
+              <InputDateField
+                        label="Preferred Appointment Date & Time"
+                        itemKey="appointment_date"
+                        onChange={handleChangeDate}
+                        />
+              <Timer itemK="slot_time"
+                     onChange={handleChangeDate}
+              />
+            </div>
           </div>
           <div className="classBookBtn">
               <ButtonComp label="Book Appointment"/>
@@ -107,7 +140,6 @@ export const Booking = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log("speee",state.specialistList)
   return{
     userRes: state.user,
     branchesList: state.branchesList,
